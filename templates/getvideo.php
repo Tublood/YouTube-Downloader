@@ -86,14 +86,10 @@ else
 		</li>
 	</ul>
 <?php } ?>
-	<hr />
-	<p><small>Note that you initiate download either by clicking "Direct" to download from the origin server or by clicking "Proxy" to use this server as proxy.</small></p>
 <?php if ($this->get('showBrowserExtensions', false) === true) { ?>
 	<p><a href="ytdl.user.js" class="userscript btn btn-mini" title="Install chrome extension to view a 'Download' link to this application on Youtube video pages."> Install Chrome Extension </a></p>
 <?php } ?>
 <?php } ?>
-<hr />
-<p class="muted pull-right"><a href="https://github.com/jeckman/YouTube-Downloader" target="_blank">Youtube Downloader <?php echo $this->get('app_version', ''); ?></a> is licensed under GPL 2.</p>
 	<div class="clearfix"></div>
 </div>
 <?php echo $this->inc('footer.php'); ?>
