@@ -39,6 +39,15 @@ $currentURL = $_SERVER['REQUEST_SCHEME'] . "://" .$_SERVER['SERVER_NAME'] . $add
 		}
 	</style>
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140690718-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-140690718-1');
+    </script>
+
     <script>
         var ytBasePath = '<?php echo $bbPath?>';
 
@@ -68,12 +77,12 @@ $currentURL = $_SERVER['REQUEST_SCHEME'] . "://" .$_SERVER['SERVER_NAME'] . $add
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?php echo $bbPath?>index.php">Youtube Downloader</a>
+			<a class="navbar-brand" href="http://youtubedownloadervideos.com">Youtube Video Downloader</a>
 		</div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="<?php echo $bbPath?>index.php">Home</a></li>
-                <li><a href="<?php echo $bbPath?>convert-youtube-to-mp3/index.php">MP 3</a></li>
+                <li><a href="http://youtubedownloadervideos.com">Home</a></li>
+                <li><a href="<?php echo $bbPath?>convert-youtube-to-mp3/index.php">Convert Youtube to mp3</a></li>
             </ul>
         </div><!--/.nav-collapse -->
 	</div>
