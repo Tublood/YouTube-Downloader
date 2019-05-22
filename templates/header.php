@@ -1,3 +1,19 @@
+<?php
+$bbPath = "/YouTube-Downloader/";
+
+$additionPortPath = '';
+
+if ($_SERVER['SERVER_PORT'] != 80) {
+    $additionPortPath = ":" . $_SERVER['SERVER_PORT'];
+}
+
+
+$currentURL = $_SERVER['REQUEST_SCHEME'] . "://" .$_SERVER['SERVER_NAME'] . $additionPortPath . $_SERVER['REQUEST_URI'];
+
+//echo $currentURL;
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -6,8 +22,8 @@
 	<meta name="keywords" content="Video downloader, download youtube, video download, youtube video, youtube downloader, download youtube FLV, download youtube MP4, download youtube 3GP, php video downloader"/>
 	<meta name="description" content="Video downloader, download youtube, video download, youtube video, youtube downloader, download youtube FLV, download youtube MP4, download youtube 3GP, php video downloader"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-	<link href="css/custom.css" rel="stylesheet">
+	<link href="<?php echo $bbPath?>css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="<?php echo $bbPath?>css/custom.css" rel="stylesheet">
 	<style type="text/css">
 		#info {
 			padding: 0 0 0 130px;
@@ -22,6 +38,25 @@
 			height: 90px
 		}
 	</style>
+
+    <script>
+        var ytBasePath = '<?php echo $bbPath?>';
+
+        window.addEventListener('load', function(){
+            var nodeList = document.querySelectorAll('.nav>li>a');
+            var currentLocation = window.location.href;
+
+            nodeList.forEach(function(node){
+                var nodeHref = node.href
+                if (nodeHref == currentLocation) {
+                    node.parentNode.classList.add('active')
+                }
+
+
+            })
+        })
+    </script>
+
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -33,13 +68,14 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.php">Youtube Downloader</a>
+			<a class="navbar-brand" href="<?php echo $bbPath?>index.php">Youtube Downloader</a>
 		</div>
-		<div id="navbar" class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="index.php">Home</a></li>
-			</ul>
-		</div><!--/.nav-collapse -->
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="<?php echo $bbPath?>index.php">Home</a></li>
+                <li><a href="<?php echo $bbPath?>convert-youtube-to-mp3/index.php">MP 3</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
 	</div>
 </nav>
 <div class="container">

@@ -32,6 +32,8 @@ class ControllerFactory
         'image' => '\\YoutubeDownloader\\Application\\ImageController',
         'index' => '\\YoutubeDownloader\\Application\\MainController',
         'results' => '\\YoutubeDownloader\\Application\\ResultController',
+        'mp3index' => '\\YoutubeDownloader\\Application\\Mp3MainController',
+        'mp3results' => '\\YoutubeDownloader\\Application\\Mp3ResultController',
         'feed' => '\\YoutubeDownloader\\Application\\FeedController',
     ];
 
