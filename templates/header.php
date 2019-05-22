@@ -1,5 +1,5 @@
 <?php
-$bbPath = "/YouTube-Downloader/";
+$bbPath = "/";
 
 $additionPortPath = '';
 
