@@ -73,40 +73,6 @@ class Mp3ResultController extends ControllerAbstract
             $this->responseWithErrorMessage($message);
         }
 
-        if ($my_type !== 'Download') {
-            /* In this else, the request didn't come from a form but from something else
-             * like an RSS feed.
-             * As a result, we just want to return the best format, which depends on what
-             * the user provided in the url.
-             * If they provided "format=best" we just use the largest.
-             * If they provided "format=free" we provide the best non-flash version
-             * If they provided "format=ipad" we pull the best MP4 version
-             *
-             * Thanks to the python based youtube-dl for info on the formats
-             *   							http://rg3.github.com/youtube-dl/
-             */
-            if (!empty($_GET['proxy']) && $_GET['proxy'] !== false || $config->get('VideoLinkMode') === 'proxy') {
-                $best_format = $this->getFullInfoByFormat($video_info, $_GET['format']);
-            
-                $proxylink = 'download.php?mime=' . $best_format->getType()
-                    . '&title=' . urlencode($video_info->getCleanedTitle())
-                    . '&token=' . base64_encode(base64_encode($best_format->getUrl()));
-                if ($config->get('localCache') || (!empty($_GET['cache']) && $_GET['cache'] !== false)) {
-                    $proxylink = $proxylink . '&cache=true';
-                }
-                header('Location: ' . $proxylink);
-                exit;
-            }
-            
-            $redirect_url = $this->getDownloadUrlByFormat($video_info, $_GET['format']);
-
-            if ($redirect_url !== null) {
-                header("Location: $redirect_url");
-            }
-
-            exit;
-        }
-
         switch ($config->get('ThumbnailImageMode')) {
             case 2:
                 $template_data['show_thumbnail'] = true;
