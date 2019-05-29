@@ -77,15 +77,6 @@ else
         <?php } ?>
     </ul>
 
-<?php if ($this->get('showMP3Download', false) === true) { ?>
-	<h2>Convert and Download to .mp3</h2>
-	<ul class="dl-list">
-		<li>
-			<a class="btn btn-default btn-type disabled" href="#" class="mime">audio/mp3 - <?php echo $this->get('mp3_download_quality'); ?></a>
-			<a class="btn btn-primary btn-download" href="<?php echo $this->get('mp3_download_url'); ?>" class="mime"><i class="glyphicon glyphicon-download-alt"></i> Convert and Download</a>
-		</li>
-	</ul>
-<?php } ?>
 <?php if ($this->get('showBrowserExtensions', false) === true) { ?>
 	<p><a href="ytdl.user.js" class="userscript btn btn-mini" title="Install chrome extension to view a 'Download' link to this application on Youtube video pages."> Install Chrome Extension </a></p>
 <?php } ?>
