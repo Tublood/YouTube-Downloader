@@ -1,4 +1,5 @@
 <?php
+//$bbPath = "/YouTube-Downloader/";
 $bbPath = "/";
 
 ?>

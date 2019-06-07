@@ -217,6 +217,7 @@ class VideoInfo implements VideoInfoInterface, CacheAware, HttpClientAware, Logg
         'url_encoded_fmt_stream_map',
         'adaptive_fmts',
         'length_seconds',
+        'player_response'
     ];
 
     /**
@@ -234,6 +235,11 @@ class VideoInfo implements VideoInfoInterface, CacheAware, HttpClientAware, Logg
         foreach ($this->allowed_keys as $key) {
             if (isset($video_info[$key])) {
                 $this->data[$key] = $video_info[$key];
+                // TODO here is the code for description
+//                if ($key == 'player_response') {
+//                    $playerResponse = json_decode($video_info[$key], true);
+//                    echo '<p>'.$playerResponse['videoDetails']['shortDescription'].'</p>';
+//                }
             } else {
                 $this->data[$key] = null;
             }
@@ -321,6 +327,16 @@ class VideoInfo implements VideoInfoInterface, CacheAware, HttpClientAware, Logg
     public function getStatus()
     {
         return $this->data['status'];
+    }
+
+    /**
+     * Get the player response
+     *
+     * @return string
+     */
+    public function getPlayerResponse()
+    {
+        return $this->data['player_response'];
     }
 
     /**
