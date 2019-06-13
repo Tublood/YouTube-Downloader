@@ -96,13 +96,11 @@ class DownloadController extends ControllerAbstract
                 $url = $mp3_info['mp3'];
             }
 
-//            if (isset($_GET['getmp3']) and isset($mp3_info['mp3'])) {
-//                echo "TUBLOOD1<br/>";
-//                $size = filesize($mp3_info['mp3']);
-//            } else {
-//                echo "TUBLOOD2<br/>";
-////                $size = $this->getSize($url, $config, $toolkit);
-//            }
+            if (isset($_GET['getmp3']) and isset($mp3_info['mp3'])) {
+                $size = filesize($mp3_info['mp3']);
+            } else {
+                $size = $this->getSize($url, $config, $toolkit);
+            }
 
             // Generate the server headers
             header('Content-Type: "' . $mime . '"');
